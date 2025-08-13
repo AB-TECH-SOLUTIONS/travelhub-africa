@@ -1,16 +1,16 @@
 // === Initialisation Firebase (SDK direct) ===
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAuth, signInWithPhoneNumber, RecaptchaVerifier } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { getFirestore, collection, addDoc, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import { getAuth, signInWithPhoneNumber, RecaptchaVerifier } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, doc, updateDoc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "TON_API_KEY",
+  apiKey: "AIzaSyDmi26-MhQawuwE15yB9NvzutNyndRJpUM",
   authDomain: "travelhub-africa.firebaseapp.com",
   projectId: "travelhub-africa",
-  storageBucket: "travelhub-africa.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "1:123456789:web:abcdef12345"
+  storageBucket: "travelhub-africa.firebasestorage.app",
+  messagingSenderId: "1078235002249",
+  appId: "1:1078235002249:web:8d569ed1fd7e09b9081d58"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -48,26 +48,50 @@ async function registerUser() {
   }
 }
 
-// === Connexion par SMS (Phone Auth) ===
-window.recaptchaVerifier = new RecaptchaVerifier('login-form', {
-  'size': 'invisible',
-  'callback': () => {}
-}, auth);
-
-async function loginWithPhone() {
-  const phoneInput = document.getElementById('login-phone').value;
-  const phoneNumber = phoneInput.startsWith('+') ? phoneInput : '+237' + phoneInput.replace(/^6/, '').padStart(8, '6');
-
-  try {
-    const appVerifier = window.recaptchaVerifier;
-    const confirmationResult = await signInWithPhoneNumber(auth, phoneNumber, appVerifier);
-    const code = prompt("Entrez le code SMS reçu :");
-    const userCredential = await confirmationResult.confirm(code);
-    currentUser = userCredential.user;
-    loadApp();
-  } catch (error) {
-    alert("Échec de connexion : " + error.message);
+// Fonction pour la vérification par SMS
+function loginWithPhone() {
+  const phoneNumber = document.getElementById('login-phone').value;
+  if (!phoneNumber.startsWith('+')) {
+    alert("Veuillez entrer un numéro de téléphone valide (+237...)");
+    return;
   }
+
+  // Créer le vérificateur reCAPTCHA
+  window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+    'size': 'invisible',
+    'callback': () => {}
+  }, auth);
+
+  // Envoyer le code SMS
+  signInWithPhoneNumber(auth, phoneNumber, window.recaptchaVerifier)
+    .then(confirmationResult => {
+      // Stocke le résultat pour valider le code
+      window.confirmationResult = confirmationResult;
+      alert("SMS envoyé ! Vérifiez votre téléphone.");
+    })
+    .catch(error => {
+      console.error("Erreur lors de l'envoi du SMS :", error);
+      alert("Impossible d'envoyer le SMS. Réessayez plus tard.");
+    });
+}
+
+// Vérifier le code SMS
+function verifyCode() {
+  const code = prompt("Entrez le code SMS reçu :");
+  if (!code) return;
+
+  window.confirmationResult
+    .confirm(code)
+    .then((userCredential) => {
+      // Utilisateur connecté
+      const user = userCredential.user;
+      alert(`Bienvenue, ${user.phoneNumber} !`);
+      // Redirige vers l'accueil ou autre page
+    })
+    .catch((error) => {
+      console.error("Erreur de vérification du code :", error);
+      alert("Code incorrect. Réessayez.");
+    });
 }
 
 // === Chargement après connexion ===
