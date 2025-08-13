@@ -6,8 +6,8 @@
   <title>TravelHub Afrique</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  
-  <!-- Firebase SDK -->
+
+  <!-- Firebase SDK (unique fois) -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
     import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
@@ -25,23 +25,14 @@
 
     // Initialiser Firebase
     const app = initializeApp(firebaseConfig);
-    const auth = getAuth();
-    const db = getFirestore();
-    const storage = getStorage();
-
-    // Exposer aux autres scripts
-    window.auth = auth;
-    window.db = db;
-    window.storage = storage;
+    window.auth = getAuth();
+    window.db = getFirestore();
+    window.storage = getStorage();
 
     // Écouteur d'auth
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        window.currentUser = user;
-        loadApp();
-      } else {
-        showScreen('auth-screen');
-      }
+    onAuthStateChanged(window.auth, (user) => {
+      window.currentUser = user;
+      loadApp();
     });
   </script>
 </head>
@@ -55,8 +46,9 @@
 
       <div id="login-form">
         <h2>Connexion</h2>
-        <input type="text" id="login-phone" placeholder="Téléphone (699000000)" />
-        <button onclick="loginWithPhone()">Se connecter</button>
+        <input type="text" id="login-phone" placeholder="Numéro (+237...)" />
+        <button onclick="loginWithPhone()">Envoyer SMS</button>
+        <div id="recaptcha-container"></div>
         <p><a href="#" onclick="showRegister()">Pas encore inscrit ?</a></p>
       </div>
 
@@ -83,19 +75,14 @@
       <form id="kyc-form">
         <label>Permis de conduire</label>
         <input type="file" id="file-permis" accept="image/*" required />
-        
         <label>Carte grise</label>
         <input type="file" id="file-grise" accept="image/*" required />
-        
         <label>Assurance</label>
         <input type="file" id="file-assurance" accept="image/*" required />
-        
         <label>Photo d'identité</label>
         <input type="file" id="file-cni" accept="image/*" required />
-        
         <label>Photo véhicule + vous</label>
         <input type="file" id="file-vehicule" accept="image/*" required />
-        
         <button type="submit">Soumettre</button>
       </form>
     </div>
@@ -105,7 +92,7 @@
   <div id="passager-ui" class="screen" style="display:none;">
     <header>
       <div class="header-left">
-        <i class="fas fa-bars" onclick="toggleMenu()"></i>
+        <i class="fas fa-bars" onclick="alert('Menu en développement')"></i>
         <h2>Bonjour, <span id="user-name">Utilisateur</span></h2>
       </div>
       <i class="fas fa-user-circle fa-2x"></i>
