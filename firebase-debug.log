@@ -1,0 +1,194 @@
+[debug] [2025-08-13T14:47:16.627Z] ----------------------------------------------------------------------
+[debug] [2025-08-13T14:47:16.638Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-08-13T14:47:16.639Z] CLI Version:   14.12.0
+[debug] [2025-08-13T14:47:16.639Z] Platform:      win32
+[debug] [2025-08-13T14:47:16.640Z] Node Version:  v22.18.0
+[debug] [2025-08-13T14:47:16.641Z] Time:          Wed Aug 13 2025 16:47:16 GMT+0200 (heure d’été d’Europe centrale)
+[debug] [2025-08-13T14:47:16.641Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-08-13T14:47:16.659Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-08-13T14:47:16.660Z] > authorizing via signed-in user (contact.abtechsolutions@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\ABTechDemo\TravelHub\Frontend
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-08-13T14:47:59.455Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:47:59.455Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:47:59.458Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-08-13T14:48:00.782Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-08-13T14:48:00.782Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project travelhub-africa (travelhub-africa) 
+[info] 
+=== Dataconnect Setup
+[debug] [2025-08-13T14:48:05.372Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:05.373Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:05.373Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/travelhub-africa/billingInfo [none]
+[debug] [2025-08-13T14:48:06.404Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/travelhub-africa/billingInfo 200
+[debug] [2025-08-13T14:48:06.404Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/travelhub-africa/billingInfo {"name":"projects/travelhub-africa/billingInfo","projectId":"travelhub-africa","billingAccountName":"","billingEnabled":false}
+[info] i  dataconnect: ensuring required API sqladmin.googleapis.com is enabled... 
+[info] i  dataconnect: ensuring required API firebasedataconnect.googleapis.com is enabled... 
+[debug] [2025-08-13T14:48:06.408Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:06.408Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:06.409Z] >>> [apiv2][query] GET https://firebasedataconnect.googleapis.com/v1/projects/travelhub-africa/locations/-/services [none]
+[debug] [2025-08-13T14:48:07.855Z] <<< [apiv2][status] GET https://firebasedataconnect.googleapis.com/v1/projects/travelhub-africa/locations/-/services 200
+[debug] [2025-08-13T14:48:07.856Z] <<< [apiv2][body] GET https://firebasedataconnect.googleapis.com/v1/projects/travelhub-africa/locations/-/services {}
+[info] i  dataconnect\dataconnect.yaml is unchanged 
+[info] i  dataconnect\schema\schema.gql is unchanged 
+[info] i  dataconnect\connector\connector.yaml is unchanged 
+[info] i  dataconnect\connector\queries.gql is unchanged 
+[info] i  dataconnect\connector\mutations.gql is unchanged 
+[info] i  If you'd like to add the generated SDK to your app later, run firebase init dataconnect:sdk 
+[info] i  If you'd like to provision a CloudSQL Postgres instance on the Firebase Data Connect no-cost trial:
+1. Please upgrade to the pay-as-you-go (Blaze) billing plan. Visit the following page:
+     https://console.firebase.google.com/project/travelhub-africa/usage/details
+2. Run firebase init dataconnect again to configure the Cloud SQL instance.
+3. Run firebase deploy --only dataconnect to deploy your Data Connect service. 
+[info] 
+=== Firestore Setup
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2025-08-13T14:48:08.195Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:08.195Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:08.195Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/travelhub-africa/databases [none]
+[debug] [2025-08-13T14:48:09.773Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/travelhub-africa/databases 200
+[debug] [2025-08-13T14:48:09.773Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/travelhub-africa/databases {"databases":[{"name":"projects/travelhub-africa/databases/(default)","uid":"bf7e4d3f-f21d-44cc-b4be-2dd2ee422d58","createTime":"2025-08-13T14:29:22.519629Z","updateTime":"2025-08-13T14:29:22.519629Z","locationId":"africa-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2025-08-13T14:29:22.519629Z","appEngineIntegrationMode":"DISABLED","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"etag":"IOa7nfaDiI8DMIfI/M+DiI8D"}]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2025-08-13T14:48:15.991Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:15.991Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:15.992Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/travelhub-africa/releases pageSize=10&pageToken=
+[debug] [2025-08-13T14:48:17.911Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/travelhub-africa/releases 200
+[debug] [2025-08-13T14:48:17.911Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/travelhub-africa/releases {"releases":[{"name":"projects/travelhub-africa/releases/cloud.firestore","rulesetName":"projects/travelhub-africa/rulesets/35298d60-4b95-4055-8c40-c3111857902e","createTime":"2025-08-13T14:29:31.384727Z","updateTime":"2025-08-13T14:29:31.384727Z"}]}
+[debug] [2025-08-13T14:48:17.912Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:17.912Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:17.912Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/travelhub-africa/rulesets/35298d60-4b95-4055-8c40-c3111857902e [none]
+[debug] [2025-08-13T14:48:18.764Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/travelhub-africa/rulesets/35298d60-4b95-4055-8c40-c3111857902e 200
+[debug] [2025-08-13T14:48:18.765Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/travelhub-africa/rulesets/35298d60-4b95-4055-8c40-c3111857902e [omitted]
+[info] i  Downloaded the existing Firestore Security Rules from the Firebase console 
+[info] i  firestore.rules is unchanged 
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2025-08-13T14:48:22.488Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:22.489Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:22.489Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:22.489Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:22.489Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/travelhub-africa/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2025-08-13T14:48:22.494Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/travelhub-africa/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2025-08-13T14:48:26.273Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/travelhub-africa/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2025-08-13T14:48:26.273Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/travelhub-africa/databases/(default)/collectionGroups/-/indexes {}
+[debug] [2025-08-13T14:48:26.963Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/travelhub-africa/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2025-08-13T14:48:26.963Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/travelhub-africa/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/travelhub-africa/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] i  Downloaded the existing Firestore indexes from the Firebase console 
+[info] i  firestore.indexes.json is unchanged 
+[info] +  Wrote firestore.indexes.json 
+[info] 
+=== Hosting Setup
+[debug] [2025-08-13T14:48:28.515Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:28.515Z] Checked if tokens are valid: true, expires at: 1755099730056
+[debug] [2025-08-13T14:48:28.518Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/travelhub-africa [none]
+[debug] [2025-08-13T14:48:32.409Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/travelhub-africa 200
+[debug] [2025-08-13T14:48:32.409Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/travelhub-africa {"projectId":"travelhub-africa","projectNumber":"1078235002249","displayName":"travelhub-africa","name":"projects/travelhub-africa","resources":{"hostingSite":"travelhub-africa"},"state":"ACTIVE","etag":"1_1581a423-2c82-4f44-ade5-3065eed9cb12"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2025-08-13T14:48:47.675Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2025-08-13T14:48:49.189Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2025-08-13T14:48:49.190Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"12.1.0","browserURL":"https://www.gstatic.com/firebasejs/12.1.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/12.1.0/firebase.tgz"},"live":{"version":"12.1","browserURL":"https://www.gstatic.com/firebasejs/live/12.1/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/12.1/firebase.tgz"},"components":{"ai":"https://www.gstatic.com/firebasejs/12.1.0/firebase-ai.js","analytics":"https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/12.1.0/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth/cordova.js","auth/web-extension":"https://www.gstatic.com/firebasejs/12.1.0/firebase-auth/web-extension.js","functions":"https://www.gstatic.com/firebasejs/12.1.0/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/12.1.0/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/12.1.0/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/12.1.0/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/12.1.0/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/12.1.0/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/12.1.0/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js","data-connect":"https://www.gstatic.com/firebasejs/12.1.0/firebase-data-connect.js","firestore.memory":"https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.memory.js"}}
+[info] +  Wrote public/index.html 
+[info] 
+[info] i  Didn't detect a .git folder. Assuming C:\ABTechDemo\TravelHub\Frontend is the project root. 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=800906870&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-08-13T14:56:24.815Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2025-08-13T14:56:24.816Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2025-08-13T14:56:25.685Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2025-08-13T14:56:25.685Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2025-08-13T14:56:25.694Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2025-08-13T14:56:26.643Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2025-08-13T14:56:26.644Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"AB-TECH-SOLUTIONS","id":225182705,"node_id":"U_kgDODWwD8Q","avatar_url":"https://avatars.githubusercontent.com/u/225182705?v=4","gravatar_id":"","url":"https://api.github.com/users/AB-TECH-SOLUTIONS","html_url":"https://github.com/AB-TECH-SOLUTIONS","followers_url":"https://api.github.com/users/AB-TECH-SOLUTIONS/followers","following_url":"https://api.github.com/users/AB-TECH-SOLUTIONS/following{/other_user}","gists_url":"https://api.github.com/users/AB-TECH-SOLUTIONS/gists{/gist_id}","starred_url":"https://api.github.com/users/AB-TECH-SOLUTIONS/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/AB-TECH-SOLUTIONS/subscriptions","organizations_url":"https://api.github.com/users/AB-TECH-SOLUTIONS/orgs","repos_url":"https://api.github.com/users/AB-TECH-SOLUTIONS/repos","events_url":"https://api.github.com/users/AB-TECH-SOLUTIONS/events{/privacy}","received_events_url":"https://api.github.com/users/AB-TECH-SOLUTIONS/received_events","type":"User","user_view_type":"private","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":1,"public_gists":0,"followers":0,"following":0,"created_at":"2025-08-07T11:01:17Z","updated_at":"2025-08-13T14:55:39Z","private_gists":0,"total_private_repos":0,"owned_private_repos":0,"disk_usage":75,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] +  Success! Logged into GitHub as AB-TECH-SOLUTIONS 
+[info] 
+[debug] [2025-08-13T14:56:26.664Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2025-08-13T14:56:26.957Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2025-08-13T14:56:26.957Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
+[debug] [2025-08-13T14:56:38.129Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2025-08-13T14:56:38.930Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2025-08-13T14:56:38.930Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
+[debug] [2025-08-13T14:56:38.982Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2025-08-13T14:56:39.616Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2025-08-13T14:56:39.617Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
+[debug] [2025-08-13T14:57:30.779Z] >>> [apiv2][query] GET https://api.github.com/repos//actions/secrets/public-key type=owner
+[debug] [2025-08-13T14:57:32.339Z] <<< [apiv2][status] GET https://api.github.com/repos//actions/secrets/public-key 404
+[debug] [2025-08-13T14:57:32.340Z] <<< [apiv2][body] GET https://api.github.com/repos//actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest","status":"404"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
+[debug] [2025-08-13T15:02:59.641Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:518:28)
+    at Interface.emit (node:domain:489:12)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1132:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:271:20)
+    at ReadStream.emit (node:events:530:35)
+    at ReadStream.emit (node:domain:489:12)
+    at emitKeys (node:internal/readline/utils:370:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+[error] 
+[error] Error: An unexpected error has occurred.

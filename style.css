@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7fc;
+  color: #333;
+}
+
+.screen {
+  display: none;
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  min-height: 100vh;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Auth */
+#auth-screen {
+  display: block;
+  padding: 20px;
+  text-align: center;
+}
+
+.auth-container h1 {
+  color: #FF6B00;
+}
+
+.auth-container input, .auth-container select, .auth-container button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.auth-container button {
+  background: #0033A0;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.form-container {
+  padding: 20px;
+}
+
+.form-container label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-container input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px dashed #009A44;
+  border-radius: 8px;
+  background: #f9fff7;
+}
+
+.form-container button {
+  width: 100%;
+  padding: 12px;
+  background: #0033A0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+/* Header */
+header {
+  background: #FF6B00;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #0033A0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header h2 {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+/* Navigation */
+#main-nav {
+  display: flex;
+  overflow-x: auto;
+  background: #f0f0f0;
+  padding: 10px 0;
+}
+
+.nav-btn {
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.nav-btn.active {
+  font-weight: bold;
+  border-bottom: 3px solid #009A44;
+}
+
+.admin-nav {
+  display: flex;
+  background: #f0f0f0;
+  padding: 10px 0;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  padding: 10px 15px;
+  border: none;
+  background: none;
+}
+
+.tab-btn.active {
+  border-bottom: 3px solid #009A44;
+  font-weight: bold;
+}
+
+.kyc-item {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f9f9f9;
+}
+
+.btn-accept { background: #009A44; color: white; border: none; padding: 8px 12px; }
+.btn-reject { background: #d32f2f; color: white; border: none; padding: 8px 12px; margin-left: 10px; }
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+.admin-table th, .admin-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.btn-export {
+  background: #0033A0;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 6px;
+}
+
+/* Sections */
+.section {
+  padding: 20px;
+  display: none;
+}
+
+/* Promo */
+.promo {
+  background: #fff8e1;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 15px 0;
+  border-left: 4px solid #FF6B00;
+}
+
+/* Trajets */
+.trajet {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  background: #fafafa;
+}
+
+.trajet h3 {
+  color: #0033A0;
+  margin-bottom: 5px;
+}
+
+.trajet .badge {
+  background: #009A44;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  margin-left: 10px;
+}
+
+.trajet .rating {
+  color: #FFD700;
+  margin: 5px 0;
+}
+
+/* Forfaits */
+.forfait {
+  border: 1px dashed #009A44;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.forfait button {
+  background: #009A44;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+/* Avis */
+.avis {
+  padding: 15px;
+  background: #f0f8ff;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .screen {
+    width: 100%;
+  }
+}

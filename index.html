@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TravelHub Afrique</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { getStorage } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
+
+    const firebaseConfig = {
+      apiKey: "TON_API_KEY",
+      authDomain: "travelhub-africa.firebaseapp.com",
+      projectId: "travelhub-africa",
+      storageBucket: "travelhub-africa.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:abcdef12345"
+    };
+
+    // Initialiser Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const db = getFirestore();
+    const storage = getStorage();
+
+    // Exposer aux autres scripts
+    window.auth = auth;
+    window.db = db;
+    window.storage = storage;
+
+    // Écouteur d'auth
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.currentUser = user;
+        loadApp();
+      } else {
+        showScreen('auth-screen');
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <!-- Écran : Authentification -->
+  <div id="auth-screen" class="screen">
+    <div class="auth-container">
+      <h1><i class="fas fa-globe-africa"></i> TravelHub Afrique</h1>
+      <p>Votre voyage, sécurisé.</p>
+
+      <div id="login-form">
+        <h2>Connexion</h2>
+        <input type="text" id="login-phone" placeholder="Téléphone (699000000)" />
+        <button onclick="loginWithPhone()">Se connecter</button>
+        <p><a href="#" onclick="showRegister()">Pas encore inscrit ?</a></p>
+      </div>
+
+      <div id="register-form" style="display:none;">
+        <h2>Inscription</h2>
+        <input type="text" id="register-name" placeholder="Nom & Prénom" />
+        <input type="text" id="register-phone" placeholder="Téléphone" />
+        <input type="text" id="register-quartier" placeholder="Quartier" />
+        <select id="register-role">
+          <option value="passager">Passager</option>
+          <option value="agent">Agent de liaison</option>
+          <option value="transporteur">Transporteur</option>
+        </select>
+        <button onclick="registerUser()">Créer un compte</button>
+        <p><a href="#" onclick="showLogin()">Déjà inscrit ?</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- KYC Form -->
+  <div id="kyc-screen" class="screen" style="display:none;">
+    <div class="form-container">
+      <h2>🔐 Vérification KYC</h2>
+      <form id="kyc-form">
+        <label>Permis de conduire</label>
+        <input type="file" id="file-permis" accept="image/*" required />
+        
+        <label>Carte grise</label>
+        <input type="file" id="file-grise" accept="image/*" required />
+        
+        <label>Assurance</label>
+        <input type="file" id="file-assurance" accept="image/*" required />
+        
+        <label>Photo d'identité</label>
+        <input type="file" id="file-cni" accept="image/*" required />
+        
+        <label>Photo véhicule + vous</label>
+        <input type="file" id="file-vehicule" accept="image/*" required />
+        
+        <button type="submit">Soumettre</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Interface Passager -->
+  <div id="passager-ui" class="screen" style="display:none;">
+    <header>
+      <div class="header-left">
+        <i class="fas fa-bars" onclick="toggleMenu()"></i>
+        <h2>Bonjour, <span id="user-name">Utilisateur</span></h2>
+      </div>
+      <i class="fas fa-user-circle fa-2x"></i>
+    </header>
+
+    <nav id="main-nav">
+      <button class="nav-btn active" onclick="showSection('accueil')">Accueil</button>
+      <button class="nav-btn" onclick="showSection('deplacer')">Me déplacer</button>
+      <button class="nav-btn" onclick="showSection('abonnement')">Abonnement</button>
+      <button class="nav-btn" onclick="showSection('support')">Support</button>
+      <button class="nav-btn" onclick="showSection('profil')">Profil</button>
+    </nav>
+
+    <section id="accueil" class="section">...</section>
+    <section id="deplacer" class="section" style="display:none;">...</section>
+    <section id="abonnement" class="section" style="display:none;">...</section>
+    <section id="support" class="section" style="display:none;">...</section>
+    <section id="profil" class="section" style="display:none;">...</section>
+  </div>
+
+  <!-- Dashboard Admin -->
+  <div id="admin-ui" class="screen" style="display:none;">
+    <header>
+      <h2>🔐 Super-Admin Panel</h2>
+      <p>Connecté en tant que : <strong>Super Admin</strong></p>
+    </header>
+
+    <nav class="admin-nav">
+      <button class="tab-btn active" onclick="openTab('pending-kyc')">KYC en attente</button>
+      <button class="tab-btn" onclick="openTab('users')">Utilisateurs</button>
+      <button class="tab-btn" onclick="openTab('revenue')">Revenus</button>
+    </nav>
+
+    <div id="pending-kyc" class="admin-tab">
+      <h3>Documents à valider</h3>
+      <div id="kyc-requests"></div>
+    </div>
+
+    <div id="users" class="admin-tab" style="display:none;">
+      <h3>Liste des utilisateurs</h3>
+      <table class="admin-table" id="users-table"></table>
+    </div>
+
+    <div id="revenue" class="admin-tab" style="display:none;">
+      <h3>Revenus</h3>
+      <p>Total aujourd’hui : <strong id="daily-revenue">0 FCFA</strong></p>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
